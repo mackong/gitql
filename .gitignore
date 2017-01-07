@@ -1,3 +1,4 @@
 *.pyc
 __pycache__
-tools
+dist
+gitql.egg-info
