@@ -33,6 +33,8 @@ long_description = """
 %(README)s
 """ % read('README')
 
+url = 'https://github.com/mackong/gitql'
+
 setup(
     name='gitql',
     version=gitql.__version__,
@@ -56,7 +58,8 @@ setup(
     author_email='mackonghp@gmail.com',
     maintainer='MacKong',
     maintainer_email='mackonghp@gmail.com',
-    url='https://github.com/mackong/gitql',
+    url=url,
+    download_url=url + '/tarball/' + gitql.__version__,
     license='MIT',
     packages=find_packages(),
     entry_points={'console_scripts': ['gitql = gitql.main:main', ]},
