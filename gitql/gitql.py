@@ -47,7 +47,12 @@ class GitQL(NodeVisitor):
                 'message': obj.message
             }
         elif isinstance(obj, git.Remote):
-            data = {'name': obj.name, }
+            data = {
+                'name': obj.name,
+                'url': obj.repo.git.remote('get-url', obj.name),
+                'push_url': obj.repo.git.remote('get-url', '--push', obj.name),
+                'owner': obj.repo.git_dir
+            }
         elif isinstance(obj, (git.Head, git.RemoteReference,
                               git.TagReference)):
             data = {
