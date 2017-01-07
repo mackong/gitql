@@ -3,7 +3,7 @@ Gitql [![Build Status](https://travis-ci.org/mackong/gitql.svg?branch=master)](h
 
 Gitql is a Git query language. 
 
-Gitql is written in Golang by [cloudson](https://github.com/cloudson/gitql), 
+Gitql is written in Golang by [cloudson](https://github.com/cloudson/gitql) originally, 
 I reimplemented by python language, and with some enhancements.
 
 ## Installation
