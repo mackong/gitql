@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from gitql.token import TokenType, Token
+from .token import TokenType, Token
 
 
-class AST:
+class AST(object):
     """Base class of Abstract-Syntax-Tree. """
     pass
 

@@ -5,12 +5,12 @@ from operator import itemgetter
 
 import git
 
-import gitql
-from gitql.errors import GitQLError
-from gitql.token import TokenType, Token
-from gitql.ast import IdentifierNode
-from gitql.visitor import NodeVisitor
-from gitql.semantical import SemanticalChecker
+from . import get_possible_fields
+from .errors import GitQLError
+from .token import TokenType, Token
+from .ast import IdentifierNode
+from .visitor import NodeVisitor
+from .semantical import SemanticalChecker
 
 
 class GitQL(NodeVisitor):
@@ -150,7 +150,7 @@ class GitQL(NodeVisitor):
         table = node.table.value
         possible_field_nodes = [
             IdentifierNode(Token(TokenType.T_IDENTIFIER, f))
-            for f in gitql.get_possible_fields(table)
+            for f in get_possible_fields(table)
         ]
         for i, field in enumerate(node.fields):
             if field.token.token_type == TokenType.T_ASTERISK:

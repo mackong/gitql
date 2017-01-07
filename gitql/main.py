@@ -2,18 +2,32 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
+import time
 import readline
 import atexit
 import argparse
-from time import perf_counter
 
 from termcolor import cprint
 
-import gitql
-from gitql.errors import GitQLError
-from gitql.lexer import Lexer
-from gitql.parser import Parser
-from gitql.gitql import GitQL
+from . import __version__, show_all_tables
+from .errors import GitQLError
+from .lexer import Lexer
+from .parser import Parser
+from .gitql import GitQL
+
+# Borrow from Lib/timeit.py
+if sys.platform == "win32":
+    # On Windows, the best timer is time.clock()
+    default_timer = time.clock
+else:
+    # On most other platforms the best timer is time.time()
+    default_timer = time.time
+
+if sys.version_info < (3, ):
+    input = raw_input
+else:
+    input = input
 
 
 def init_readline():
@@ -51,7 +65,7 @@ def print_json(header, rows):
 
 
 def run(query, out_type, path):
-    start = perf_counter()
+    t0 = default_timer()
 
     try:
         lexer = Lexer(query)
@@ -62,7 +76,7 @@ def run(query, out_type, path):
         print(e)
         return
 
-    ellapse = perf_counter() - start
+    ellapse = default_timer() - t0
     if out_type == 'table':
         print_table(header, rows)
     elif out_type == 'json':
@@ -118,7 +132,7 @@ def get_parser():
         '-v',
         '--version',
         action='version',
-        version='%(prog)s ' + gitql.__version__,
+        version='%(prog)s ' + __version__,
         help='Show the version of gitql')
     return ap
 
@@ -128,7 +142,7 @@ def main():
     args = vars(parser.parse_args())
 
     if args['show_tables']:
-        gitql.show_all_tables()
+        show_all_tables()
         return
 
     if args['interactive']:

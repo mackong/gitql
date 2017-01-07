@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from gitql.errors import GitQLError
-from gitql.token import TokenType, Token
-from gitql.ast import (NumNode, StringNode, IdentifierNode, UnaryOpNode,
-                       BinOpNode, WhereNode, OrderNode, LimitNode, SelectNode)
+from .errors import GitQLError
+from .token import TokenType, Token
+from .ast import (NumNode, StringNode, IdentifierNode, UnaryOpNode, BinOpNode,
+                  WhereNode, OrderNode, LimitNode, SelectNode)
 
 
-class Parser:
+class Parser(object):
     def __init__(self, lexer):
         self.lexer = lexer
         self.current_token = None

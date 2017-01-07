@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from gitql.errors import GitQLError
+from .errors import GitQLError
 
 
-class NodeVisitor:
+class NodeVisitor(object):
     @staticmethod
     def get_method_name(node):
         name = type(node).__name__.lower()  # lower() make PEP happy.

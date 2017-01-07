@@ -5,11 +5,11 @@ import string
 
 from termcolor import cprint
 
-from gitql.errors import GitQLError
-from gitql.token import TokenType, Token
+from .errors import GitQLError
+from .token import TokenType, Token
 
 
-class Lexer:
+class Lexer(object):
     # All keywords reversed.
     REVERSED_KEYWORDS = {
         'select': TokenType.T_SELECT,

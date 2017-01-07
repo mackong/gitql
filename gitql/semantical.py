@@ -3,16 +3,16 @@
 
 import collections
 
-import gitql
-from gitql.token import TokenType
-from gitql.ast import NumNode, StringNode, IdentifierNode
-from gitql.visitor import NodeVisitor
+from . import PossibleTables, get_possible_fields
+from .token import TokenType
+from .ast import NumNode, StringNode, IdentifierNode
+from .visitor import NodeVisitor
 
 
 class SemanticalChecker(NodeVisitor):
     def check_table(self, node):
         table = node.table.value
-        if table.lower() not in gitql.PossibleTables:
+        if table.lower() not in PossibleTables:
             return 'Table {!r} not found'.format(table)
 
     def check_fields(self, node):
@@ -24,7 +24,7 @@ class SemanticalChecker(NodeVisitor):
 
         # Existance
         table = node.table.value
-        possible_fields = gitql.get_possible_fields(table)
+        possible_fields = get_possible_fields(table)
         for field in ct:
             if field != '*' and field not in possible_fields:
                 return 'Field {!r} not found in Table {!r}'.format(field,
@@ -70,7 +70,7 @@ class SemanticalChecker(NodeVisitor):
             return
 
         table = node.table.value
-        possible_fields = gitql.get_possible_fields(table)
+        possible_fields = get_possible_fields(table)
         field = node.order.field.value
         if field.lower() not in possible_fields:
             return 'Field {!r} of Order not found in Table {!r}'.format(field,

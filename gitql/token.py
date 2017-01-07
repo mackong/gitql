@@ -2,50 +2,51 @@
 # -*- coding: utf-8 -*-
 
 from enum import Enum
-from typing import Any
+
+# Borrow from Lib/enum.py
+_auto_null = object()
 
 
-class AutoNumber(Enum):
-    def __new__(cls):
-        value = len(cls.__members__) + 1
-        obj = object.__new__(cls)
-        obj._value_ = value
-        return obj
+class auto:
+    """
+    Instances are replaced with an appropriate value in Enum class suites.
+    """
+    value = _auto_null
 
 
-class TokenType(AutoNumber):
-    T_SELECT = ()
-    T_FROM = ()
-    T_WHERE = ()
-    T_ORDER = ()
-    T_BY = ()
-    T_LIMIT = ()
-    T_OFFSET = ()
-    T_IN = ()
-    T_DESC = ()
-    T_ASC = ()
-    T_AND = ()
-    T_OR = ()
-    T_NOT = ()
-    T_IDENTIFIER = ()
-    T_NUMBER = ()
-    T_STRING = ()
-    T_ASTERISK = ()  # *
-    T_COMMA = ()  # ,
-    T_SEMICOLON = ()  # ;
-    T_LPARAN = ()  # (
-    T_RPARAN = ()  # )
-    T_EQ = ()  # =
-    T_GT = ()  # >
-    T_GTE = ()  # >=
-    T_LT = ()  # <
-    T_LTE = ()  # <=
-    T_NEQ = ()  # !=
-    T_EOF = ()
+class TokenType(Enum):
+    T_SELECT = auto()
+    T_FROM = auto()
+    T_WHERE = auto()
+    T_ORDER = auto()
+    T_BY = auto()
+    T_LIMIT = auto()
+    T_OFFSET = auto()
+    T_IN = auto()
+    T_DESC = auto()
+    T_ASC = auto()
+    T_AND = auto()
+    T_OR = auto()
+    T_NOT = auto()
+    T_IDENTIFIER = auto()
+    T_NUMBER = auto()
+    T_STRING = auto()
+    T_ASTERISK = auto()  # *
+    T_COMMA = auto()  # ,
+    T_SEMICOLON = auto()  # ;
+    T_LPARAN = auto()  # auto(
+    T_RPARAN = auto()  # )
+    T_EQ = auto()  # =
+    T_GT = auto()  # >
+    T_GTE = auto()  # >=
+    T_LT = auto()  # <
+    T_LTE = auto()  # <=
+    T_NEQ = auto()  # !=
+    T_EOF = auto()
 
 
 class Token:
-    def __init__(self, token_type: TokenType, value: Any):
+    def __init__(self, token_type, value):
         self.token_type = token_type
         self.value = value
 
