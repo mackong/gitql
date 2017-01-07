@@ -3,8 +3,7 @@
 
 import string
 
-from termcolor import cprint
-
+from . import red
 from .errors import GitQLError
 from .token import TokenType, Token
 
@@ -57,7 +56,7 @@ class Lexer(object):
         self.current_char = self.source[self.pos] if self.source_len else None
 
     def error(self):
-        cprint('    {}'.format(self.source), 'red')
+        print('    {}'.format(red(self.source)))
         print('    {}^'.format(' ' * self.pos))
         raise GitQLError('invalid character')
 

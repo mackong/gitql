@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from termcolor import colored
+from . import red
 
 
 class GitQLError(Exception):
@@ -11,4 +11,4 @@ class GitQLError(Exception):
         self.message = message
 
     def __str__(self):
-        return '{}: {}'.format(colored('GitQLError', 'red'), self.message)
+        return '{}: {}'.format(red('GitQLError'), self.message)

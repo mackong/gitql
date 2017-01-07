@@ -11,9 +11,7 @@ try:
 except ImportError:
     import pyreadline as readline
 
-from termcolor import cprint
-
-from . import __version__, show_all_tables
+from . import __version__, show_all_tables, bold
 from .errors import GitQLError
 from .lexer import Lexer
 from .parser import Parser
@@ -23,6 +21,9 @@ from .gitql import GitQL
 if sys.platform == "win32":
     # On Windows, the best timer is time.clock()
     default_timer = time.clock
+
+    import colorama
+    colorama.init()
 else:
     # On most other platforms the best timer is time.time()
     default_timer = time.time
@@ -50,7 +51,7 @@ def print_footer(nrows, ellapse):
     # TODO make ellapse more accurate.
     fmt = '{} row{} in set ({:.2f} sec)\n'
     s = fmt.format(nrows, 's' if nrows > 1 else '', ellapse)
-    cprint(s, attrs=['bold'])
+    print(bold(s))
 
 
 def print_table(header, rows):

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from termcolor import colored
+
 __version__ = '1.0.0'
 
 # Supported tables and fields.
@@ -48,3 +50,11 @@ def show_all_tables():
     for table, fields in PossibleTables.items():
         print('{}'.format(table))
         print('    {}'.format(' . '.join(fields)))
+
+
+def red(s):
+    return colored(s, 'red')
+
+
+def bold(s):
+    return colored(s, attrs=['bold'])

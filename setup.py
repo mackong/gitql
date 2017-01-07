@@ -11,6 +11,7 @@ def extra_dependencies():
         ret.append('argparse')
     if sys.platform == 'win32':
         ret.append('pyreadline')
+        ret.append('colorama')
     return ret
 
 
