@@ -9,6 +9,8 @@ def extra_dependencies():
     ret = []
     if sys.version_info < (2, 7):
         ret.append('argparse')
+    if sys.platform == 'win32':
+        ret.append('pyreadline')
     return ret
 
 

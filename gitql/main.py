@@ -4,9 +4,12 @@
 import os
 import sys
 import time
-import readline
 import atexit
 import argparse
+try:
+    import readline
+except ImportError:
+    import pyreadline as readline
 
 from termcolor import cprint
 
