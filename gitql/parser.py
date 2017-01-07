@@ -3,7 +3,8 @@
 
 from gitql.errors import GitQLError
 from gitql.token import TokenType, Token
-from gitql.ast import *
+from gitql.ast import (NumNode, StringNode, IdentifierNode, UnaryOpNode,
+                       BinOpNode, WhereNode, OrderNode, LimitNode, SelectNode)
 
 
 class Parser:
