@@ -43,7 +43,7 @@ optional arguments:
 Select * From COMMITS wherE author='bob';
 ```
 
-* field message -> summary, full_message -> message of commits table
+* field message -> summary, full_message -> message changed in commits table
 
 * a table footer added similar to "mysql"
 
@@ -52,7 +52,7 @@ Select * From COMMITS wherE author='bob';
 select * from tags where not 'RC' in name;
 ```
 
-* limit -1 for *all*
+* limit -1 for *all* records
 ```
 select * from tags limit -1;
 ```
