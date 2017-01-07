@@ -9,6 +9,11 @@ reimplemented by python language, and with some enhancements.
 
 Installation
 ------------
+::
+
+    pip install gitql
+
+or
 
 ::
 
