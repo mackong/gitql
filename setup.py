@@ -9,6 +9,8 @@ def extra_dependencies():
     ret = []
     if sys.version_info < (2, 7):
         ret.append('argparse')
+    if sys.version_info < (3, 4):
+        ret.append('enum34')
     if sys.platform == 'win32':
         ret.append('pyreadline')
         ret.append('colorama')
@@ -66,4 +68,5 @@ setup(
     install_requires=[
         'GitPython',
         'termcolor',
-    ] + extra_dependencies())
+    ] + extra_dependencies(),
+    include_package_data=True)
