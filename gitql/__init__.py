@@ -3,7 +3,7 @@
 
 from termcolor import colored
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 # Supported tables and fields.
 PossibleTables = {
