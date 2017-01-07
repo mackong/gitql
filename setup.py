@@ -62,6 +62,5 @@ setup(
     entry_points={'console_scripts': ['gitql = gitql.main:main', ]},
     install_requires=[
         'GitPython',
-        'prettytable',
         'termcolor',
     ] + extra_dependencies())

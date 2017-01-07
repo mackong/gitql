@@ -55,8 +55,8 @@ def print_footer(nrows, ellapse):
 
 
 def print_table(header, rows):
-    import prettytable
-    pt = prettytable.PrettyTable(header, hrules=prettytable.ALL)
+    import prettytable.prettytable as pt
+    pt = pt.PrettyTable(header, hrules=pt.ALL)
     pt.align = 'l'
     for row in rows:
         pt.add_row(row)

@@ -46,6 +46,11 @@ Select * From COMMITS wherE author='bob';
 
 * field message -> summary, full_message -> message changed in commits table
 
+* *\** can combined with other fields
+```
+select *, name, full_name from tags;
+```
+
 * a table footer added similar to "mysql"
 
 * keyword *NOT* added
