@@ -1,5 +1,8 @@
-Gitql |Build Status|
+Gitql 
 ====================
+
+.. image:: https://travis-ci.org/mackong/gitql.svg?branch=master
+   :target: https://travis-ci.org/mackong/gitql
 
 Gitql is a Git query language.
 
@@ -114,6 +117,3 @@ Compare to `Gitql <https://github.com/cloudson/gitql>`__
    ::
 
        select * from commits where 1 and 2;
-
-.. |Build Status| image:: https://travis-ci.org/mackong/gitql.svg?branch=master
-   :target: https://travis-ci.org/mackong/gitql
