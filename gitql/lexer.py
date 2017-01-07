@@ -56,8 +56,8 @@ class Lexer(object):
         self.current_char = self.source[self.pos] if self.source_len else None
 
     def error(self):
-        print('    {}'.format(red(self.source)))
-        print('    {}^'.format(' ' * self.pos))
+        print('\t{}'.format(red(self.source)))
+        print('\t{}^'.format(' ' * self.pos))
         raise GitQLError('invalid character')
 
     def eof(self, pos=None):

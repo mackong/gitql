@@ -47,9 +47,10 @@ def get_possible_fields(table):
 
 
 def show_all_tables():
+    print('Tables: \n')
     for table, fields in PossibleTables.items():
         print('{}'.format(table))
-        print('    {}'.format(' . '.join(fields)))
+        print('\t{}.\n'.format(', '.join(fields)))
 
 
 def red(s):
