@@ -38,26 +38,26 @@ optional arguments:
 
 ## Compare to [Gitql](https://github.com/cloudson/gitql)
 
-### tables, fields, keywords *case-insensitive*
+* tables, fields, keywords *case-insensitive*
 ```
 Select * From COMMITS wherE author='bob';
 ```
 
-### field message -> summary, full_message -> message of commits table
+* field message -> summary, full_message -> message of commits table
 
-### a table footer added similar to "mysql"
+* a table footer added similar to "mysql"
 
-### keyword *NOT* added
+* keyword *NOT* added
 ```
 select * from tags where not 'RC' in name;
 ```
 
-### limit -1 for *all*
+* limit -1 for *all*
 ```
 select * from tags limit -1;
 ```
 
-### offset added to limit
+* offset added to limit
 ```
 select * from tags limit 5, 5;
 ```
@@ -66,7 +66,7 @@ or
 select * from tags limit 5 offset 5;
 ```
 
-### tailing `;` is optional
+* tailing `;` is optional
 ```
 select * from tags
 ```
@@ -74,9 +74,8 @@ or
 ```
 select * from tags;
 ```
-all ok.
 
-### value type limitation in where clause removed
+* value type limitation in where clause removed
 ```
 select summary, date from commits where '2016-12-28' < date;
 ```
