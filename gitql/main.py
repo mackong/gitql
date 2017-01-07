@@ -63,12 +63,19 @@ def print_table(header, rows):
     print(pt)
 
 
-def print_json(header, rows):
-    # TODO
-    pass
+def print_json(header, rows, format_json):
+    import json
+
+    indent = 2 if format_json else None
+    obj = [dict(zip(header, row)) for row in rows]
+    print(json.dumps(obj, indent=indent))
 
 
-def run(query, out_type, path):
+def run(query, args):
+    path = args['path']
+    out_type = args['type']
+    format_json = args['format_json']
+
     t0 = default_timer()
 
     try:
@@ -84,7 +91,7 @@ def run(query, out_type, path):
     if out_type == 'table':
         print_table(header, rows)
     elif out_type == 'json':
-        print_json(header, rows)
+        print_json(header, rows, format_json)
 
     print_footer(len(rows), ellapse)
 
@@ -106,7 +113,7 @@ def run_interactive(args):
         if query.lower() in ('exit', 'quit'):
             break
 
-        run(query, args['type'], args['path'])
+        run(query, args)
 
 
 def get_parser():
@@ -132,6 +139,11 @@ def get_parser():
         choices=['table', 'json'],
         default='table',
         help='The output type format (default "table")')
+    ap.add_argument(
+        '-f',
+        '--format-json',
+        action='store_true',
+        help='Format the json output')
     ap.add_argument(
         '-v',
         '--version',
