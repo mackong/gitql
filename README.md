@@ -39,26 +39,26 @@ optional arguments:
 
 ## Compare to [Gitql](https://github.com/cloudson/gitql)
 
-* tables, fields, keywords *case-insensitive*
+* tables, fields, keywords **case-insensitive**
 ```
 Select * From COMMITS wherE author='bob';
 ```
 
 * field message -> summary, full_message -> message changed in commits table
 
-* *\** can combined with other fields
+* <b>*</b> can combined with other fields
 ```
 select *, name, full_name from tags;
 ```
 
-* a table footer added similar to "mysql"
+* a table footer added similar to **mysql**
 
-* keyword *NOT* added
+* keyword **NOT** added
 ```
 select * from tags where not 'RC' in name;
 ```
 
-* limit -1 for *all* records
+* limit -1 for **all** records
 ```
 select * from tags limit -1;
 ```
