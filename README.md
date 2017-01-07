@@ -19,7 +19,7 @@ python setup.py install
 
 ## Usage
 ```
-usage: gitql [-h] [-i] [-p PATH] [-s] [-t {table,json}] [-v] [SQL]
+usage: gitql [-h] [-i] [-p PATH] [-s] [-t {table,json}] [-f] [-v] [SQL]
 
 Git query language
 
@@ -33,6 +33,7 @@ optional arguments:
   -s, --show-tables     Show all tables
   -t {table,json}, --type {table,json}
                         The output type format (default "table")
+  -f, --format-json     Format the json output
   -v, --version         Show the version of gitql
 ```
 
