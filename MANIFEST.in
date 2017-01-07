@@ -1,1 +1,1 @@
-include *.txt *.md .travis.yml
+include *.txt *.rst .travis.yml

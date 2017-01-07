@@ -19,7 +19,7 @@ def extra_dependencies():
 
 def read(*names):
     values = dict()
-    extensions = ['txt', 'md']
+    extensions = ['txt', 'rst']
     for name in names:
         value = ''
         for ext in extensions:
