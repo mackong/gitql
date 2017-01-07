@@ -167,7 +167,7 @@ def main():
         parser.print_help()
         return
     else:
-        run(args['sql'], args['type'], args['path'])
+        run(args['sql'], args)
 
 
 if __name__ == '__main__':
