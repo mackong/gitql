@@ -34,7 +34,7 @@ class TokenType(Enum):
     T_ASTERISK = auto()  # *
     T_COMMA = auto()  # ,
     T_SEMICOLON = auto()  # ;
-    T_LPARAN = auto()  # auto(
+    T_LPARAN = auto()  # (
     T_RPARAN = auto()  # )
     T_EQ = auto()  # =
     T_GT = auto()  # >
